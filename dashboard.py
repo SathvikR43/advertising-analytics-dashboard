@@ -38,19 +38,16 @@ BOX_COLOR = '#1a1a2e'
 
 st.markdown("""
     <style>
-    /* Force dark mode - override all browser settings */
     * {
         color-scheme: dark !important;
     }
     
-    /* Main background - force dark */
     .main, .stApp, [data-testid="stAppViewContainer"] {
         padding: 0rem 1rem;
         background-color: #0f0f1e !important;
         color: white !important;
     }
     
-    /* Sidebar - force dark */
     [data-testid="stSidebar"], [data-testid="stSidebarContent"] {
         background-color: #16213e !important;
     }
@@ -59,12 +56,10 @@ st.markdown("""
         color: white !important;
     }
     
-    /* Force dark background on all containers */
     .element-container, .stMarkdown, section {
         background-color: transparent !important;
     }
     
-    /* KPI Cards */
     .stMetric {
         background-color: #1a1a2e !important;
         color: white !important;
@@ -90,18 +85,15 @@ st.markdown("""
         color: #FCA50A !important;
     }
     
-    /* Force ALL text white */
     h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th, .stMarkdown {
         color: white !important;
     }
     
-    /* Headers */
     h1, h2, h3 {
         color: white !important;
         font-weight: 600 !important;
     }
     
-    /* Buttons */
     .stButton button {
         background-color: #1a1a2e !important;
         color: white !important;
@@ -115,7 +107,6 @@ st.markdown("""
         background-color: #2a2a3e !important;
     }
     
-    /* Dataframe - force dark */
     .dataframe, .dataframe tbody, .dataframe tr, .dataframe td {
         background-color: rgba(26, 26, 46, 0.8) !important;
         color: white !important;
@@ -127,18 +118,77 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Expander */
+    table, table * {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    thead, thead tr, thead th {
+        background-color: #2a2a3e !important;
+        color: white !important;
+    }
+    
+    tbody tr:nth-child(even) {
+        background-color: rgba(26, 26, 46, 0.5) !important;
+    }
+    
+    tbody tr:nth-child(odd) {
+        background-color: rgba(26, 26, 46, 0.7) !important;
+    }
+    
     .streamlit-expanderHeader {
         background-color: #1a1a2e !important;
         color: white !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
-    /* Input fields - force dark */
     input, select, textarea {
         background-color: #1a1a2e !important;
         color: white !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    /* DROPDOWN FIXES */
+    [data-baseweb="select"], 
+    [data-baseweb="popover"],
+    [data-baseweb="menu"],
+    div[role="listbox"],
+    div[role="option"] {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    .stSelectbox > div > div {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    [data-baseweb="select"] > div {
+        background-color: #1a1a2e !important;
+    }
+    
+    .stMultiSelect > div > div {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    [role="option"] {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    [role="option"]:hover {
+        background-color: #2a2a3e !important;
+        color: white !important;
+    }
+    
+    [data-baseweb="select"] span,
+    [data-baseweb="select"] div {
+        color: white !important;
+    }
+    
+    [data-testid="stMultiSelect"] [data-baseweb="popover"] {
+        background-color: #1a1a2e !important;
     }
     
     /* Multiselect tags */
@@ -147,39 +197,36 @@ st.markdown("""
         color: white !important;
     }
     
-    /* Slider */
+    /* Date picker */
+    [data-baseweb="calendar"] {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    [data-baseweb="calendar"] * {
+        color: white !important;
+    }
+    
     .stSlider [data-testid="stTickBar"] {
         background-color: #1a1a2e !important;
     }
     
-    /* Radio/Checkbox */
     .stRadio label, .stCheckbox label {
         color: white !important;
     }
     
-    /* Success/Info/Warning boxes - force dark */
     .stSuccess, .stInfo, .stWarning, .stAlert {
         background-color: rgba(26, 26, 46, 0.8) !important;
         color: white !important;
         border-left: 4px solid #FCA50A !important;
     }
     
-    /* Divider */
     hr {
         border-color: rgba(255, 255, 255, 0.2) !important;
     }
     
-    /* Force white text on all selectboxes */
-    [data-testid="stSelectbox"] label {
-        color: white !important;
-    }
-    
-    /* Date input styling */
-    [data-testid="stDateInput"] label {
-        color: white !important;
-    }
-    
-    /* Multiselect styling */
+    [data-testid="stSelectbox"] label,
+    [data-testid="stDateInput"] label,
     [data-testid="stMultiSelect"] label {
         color: white !important;
     }
@@ -857,3 +904,4 @@ if st.sidebar.button("Reload from BigQuery"):
     st.cache_data.clear()
 
     st.rerun()
+
