@@ -38,20 +38,33 @@ BOX_COLOR = '#1a1a2e'
 
 st.markdown("""
     <style>
-    .main {
+    /* Force dark mode - override all browser settings */
+    * {
+        color-scheme: dark !important;
+    }
+    
+    /* Main background - force dark */
+    .main, .stApp, [data-testid="stAppViewContainer"] {
         padding: 0rem 1rem;
         background-color: #0f0f1e !important;
         color: white !important;
     }
     
-    [data-testid="stSidebar"] {
+    /* Sidebar - force dark */
+    [data-testid="stSidebar"], [data-testid="stSidebarContent"] {
         background-color: #16213e !important;
     }
     
-    [data-testid="stSidebar"] * {
+    [data-testid="stSidebar"] *, [data-testid="stSidebarContent"] * {
         color: white !important;
     }
     
+    /* Force dark background on all containers */
+    .element-container, .stMarkdown, section {
+        background-color: transparent !important;
+    }
+    
+    /* KPI Cards */
     .stMetric {
         background-color: #1a1a2e !important;
         color: white !important;
@@ -77,48 +90,98 @@ st.markdown("""
         color: #FCA50A !important;
     }
     
-    h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th {
+    /* Force ALL text white */
+    h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th, .stMarkdown {
         color: white !important;
     }
     
+    /* Headers */
     h1, h2, h3 {
         color: white !important;
         font-weight: 600 !important;
     }
     
+    /* Buttons */
     .stButton button {
-        background-color: #1a1a2e;
+        background-color: #1a1a2e !important;
         color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
         padding: 10px 24px;
         border-radius: 5px;
         font-weight: 600;
     }
     
-    .dataframe {
+    .stButton button:hover {
+        background-color: #2a2a3e !important;
+    }
+    
+    /* Dataframe - force dark */
+    .dataframe, .dataframe tbody, .dataframe tr, .dataframe td {
         background-color: rgba(26, 26, 46, 0.8) !important;
         color: white !important;
     }
     
-    .dataframe th {
+    .dataframe th, .dataframe thead tr {
         background-color: #1a1a2e !important;
         color: white !important;
         font-weight: 600 !important;
     }
     
-    .dataframe td {
-        color: white !important;
-        background-color: rgba(26, 26, 46, 0.5) !important;
-    }
-    
+    /* Expander */
     .streamlit-expanderHeader {
         background-color: #1a1a2e !important;
         color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
+    /* Input fields - force dark */
+    input, select, textarea {
+        background-color: #1a1a2e !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    /* Multiselect tags */
+    [data-baseweb="tag"] {
+        background-color: #DD513A !important;
+        color: white !important;
+    }
+    
+    /* Slider */
+    .stSlider [data-testid="stTickBar"] {
+        background-color: #1a1a2e !important;
+    }
+    
+    /* Radio/Checkbox */
+    .stRadio label, .stCheckbox label {
+        color: white !important;
+    }
+    
+    /* Success/Info/Warning boxes - force dark */
+    .stSuccess, .stInfo, .stWarning, .stAlert {
+        background-color: rgba(26, 26, 46, 0.8) !important;
+        color: white !important;
+        border-left: 4px solid #FCA50A !important;
+    }
+    
+    /* Divider */
     hr {
         border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Force white text on all selectboxes */
+    [data-testid="stSelectbox"] label {
+        color: white !important;
+    }
+    
+    /* Date input styling */
+    [data-testid="stDateInput"] label {
+        color: white !important;
+    }
+    
+    /* Multiselect styling */
+    [data-testid="stMultiSelect"] label {
+        color: white !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -792,4 +855,5 @@ st.sidebar.info(f"""
 
 if st.sidebar.button("Reload from BigQuery"):
     st.cache_data.clear()
+
     st.rerun()
