@@ -56,10 +56,6 @@ st.markdown("""
         color: white !important;
     }
     
-    .element-container, .stMarkdown, section {
-        background-color: transparent !important;
-    }
-    
     .stMetric {
         background-color: #1a1a2e !important;
         color: white !important;
@@ -85,13 +81,8 @@ st.markdown("""
         color: #FCA50A !important;
     }
     
-    h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th, .stMarkdown {
+    h1, h2, h3, h4, h5, h6, p, span, div, label, li {
         color: white !important;
-    }
-    
-    h1, h2, h3 {
-        color: white !important;
-        font-weight: 600 !important;
     }
     
     .stButton button {
@@ -103,49 +94,56 @@ st.markdown("""
         font-weight: 600;
     }
     
-    .stButton button:hover {
+    /* COMPLETE TABLE STYLING */
+    [data-testid="stDataFrame"],
+    [data-testid="stDataFrameResizable"] {
+        background-color: transparent !important;
+    }
+    
+    [data-testid="stDataFrame"] table,
+    [data-testid="stDataFrameResizable"] table,
+    .dataframe {
+        background-color: #1a1a2e !important;
+        color: white !important;
+    }
+    
+    [data-testid="stDataFrame"] thead,
+    [data-testid="stDataFrame"] thead tr,
+    [data-testid="stDataFrame"] thead th,
+    [data-testid="stDataFrameResizable"] thead,
+    [data-testid="stDataFrameResizable"] thead tr,
+    [data-testid="stDataFrameResizable"] thead th,
+    .dataframe thead,
+    .dataframe thead tr,
+    .dataframe thead th {
         background-color: #2a2a3e !important;
-    }
-    
-    .dataframe, .dataframe tbody, .dataframe tr, .dataframe td {
-        background-color: rgba(26, 26, 46, 0.8) !important;
         color: white !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
     }
     
-    .dataframe th, .dataframe thead tr {
+    [data-testid="stDataFrame"] tbody,
+    [data-testid="stDataFrame"] tbody tr,
+    [data-testid="stDataFrame"] tbody td,
+    [data-testid="stDataFrameResizable"] tbody,
+    [data-testid="stDataFrameResizable"] tbody tr,
+    [data-testid="stDataFrameResizable"] tbody td,
+    .dataframe tbody,
+    .dataframe tbody tr,
+    .dataframe tbody td {
         background-color: #1a1a2e !important;
         color: white !important;
-        font-weight: 600 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
     }
     
-    table, table * {
-        background-color: #1a1a2e !important;
+    [data-testid="stDataFrame"] tbody tr:nth-child(even),
+    [data-testid="stDataFrameResizable"] tbody tr:nth-child(even) {
+        background-color: rgba(42, 42, 62, 0.5) !important;
+    }
+    
+    [data-testid="stDataFrame"] *,
+    [data-testid="stDataFrameResizable"] *,
+    table *, th *, td * {
         color: white !important;
-    }
-    
-    thead, thead tr, thead th {
-        background-color: #2a2a3e !important;
-        color: white !important;
-    }
-    
-    tbody tr:nth-child(even) {
-        background-color: rgba(26, 26, 46, 0.5) !important;
-    }
-    
-    tbody tr:nth-child(odd) {
-        background-color: rgba(26, 26, 46, 0.7) !important;
-    }
-    
-    .streamlit-expanderHeader {
-        background-color: #1a1a2e !important;
-        color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    }
-    
-    input, select, textarea {
-        background-color: #1a1a2e !important;
-        color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
     
     /* DROPDOWN FIXES */
@@ -158,15 +156,7 @@ st.markdown("""
         color: white !important;
     }
     
-    .stSelectbox > div > div {
-        background-color: #1a1a2e !important;
-        color: white !important;
-    }
-    
-    [data-baseweb="select"] > div {
-        background-color: #1a1a2e !important;
-    }
-    
+    .stSelectbox > div > div,
     .stMultiSelect > div > div {
         background-color: #1a1a2e !important;
         color: white !important;
@@ -179,7 +169,6 @@ st.markdown("""
     
     [role="option"]:hover {
         background-color: #2a2a3e !important;
-        color: white !important;
     }
     
     [data-baseweb="select"] span,
@@ -187,35 +176,24 @@ st.markdown("""
         color: white !important;
     }
     
-    [data-testid="stMultiSelect"] [data-baseweb="popover"] {
-        background-color: #1a1a2e !important;
-    }
-    
-    /* Multiselect tags */
     [data-baseweb="tag"] {
         background-color: #DD513A !important;
         color: white !important;
     }
     
-    /* Date picker */
-    [data-baseweb="calendar"] {
+    input, select, textarea {
         background-color: #1a1a2e !important;
         color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
     
-    [data-baseweb="calendar"] * {
-        color: white !important;
-    }
-    
-    .stSlider [data-testid="stTickBar"] {
+    .streamlit-expanderHeader {
         background-color: #1a1a2e !important;
-    }
-    
-    .stRadio label, .stCheckbox label {
         color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
-    .stSuccess, .stInfo, .stWarning, .stAlert {
+    .stSuccess, .stInfo, .stWarning {
         background-color: rgba(26, 26, 46, 0.8) !important;
         color: white !important;
         border-left: 4px solid #FCA50A !important;
@@ -223,12 +201,6 @@ st.markdown("""
     
     hr {
         border-color: rgba(255, 255, 255, 0.2) !important;
-    }
-    
-    [data-testid="stSelectbox"] label,
-    [data-testid="stDateInput"] label,
-    [data-testid="stMultiSelect"] label {
-        color: white !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -904,4 +876,5 @@ if st.sidebar.button("Reload from BigQuery"):
     st.cache_data.clear()
 
     st.rerun()
+
 
