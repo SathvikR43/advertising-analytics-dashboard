@@ -153,9 +153,23 @@ def load_data():
     project_id = st.secrets["gcp_service_account"]["project_id"]
     
     query = f"""
-    SELECT date, platform, campaign_id, campaign_name, ad_group_id, ad_group_name,
-           impressions, clicks, cost, conversions, video_views, reach, engagement_rate,
-           conversion_value, quality_score, search_impression_share
+    SELECT 
+        date, 
+        platform, 
+        campaign_id, 
+        campaign_name, 
+        ad_group_id, 
+        ad_group_name,
+        impressions, 
+        clicks, 
+        cost, 
+        conversions, 
+        video_views, 
+        reach, 
+        engagement_rate,
+        conversion_value, 
+        quality_score, 
+        search_impression_share
     FROM `{project_id}.advertising_data.unified_ads`
     ORDER BY date, platform
     """
@@ -778,6 +792,7 @@ if st.sidebar.button("Reload from BigQuery"):
     st.cache_data.clear()
 
     st.rerun()
+
 
 
 
