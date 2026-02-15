@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Secrets - NEVER commit these!
+*.json
+.streamlit/secrets.toml
+service-account*.json
+*credentials*.json
+gcp-key.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Streamlit
+.streamlit/config.toml
+
+# Data files (optional - if you don't want to commit CSVs)
+# *.csv
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Distribution
+build/
+dist/
+*.egg-info/
