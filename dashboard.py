@@ -173,12 +173,14 @@ def load_data():
     FROM `{project_id}.advertising_data.unified_ads`
     ORDER BY date, platform
     """
+    
     try:
         df = client.query(query).to_dataframe()
         df['date'] = pd.to_datetime(df['date'])
         return df
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.error(f"Error loading data: {e}")
+        st.error(f"Query attempted: {query}")
         st.stop()
 
 def calculate_metrics(df):
@@ -790,11 +792,4 @@ st.sidebar.info(f"""
 
 if st.sidebar.button("Reload from BigQuery"):
     st.cache_data.clear()
-
     st.rerun()
-
-
-
-
-
-
