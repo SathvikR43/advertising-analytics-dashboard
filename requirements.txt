@@ -1,0 +1,21 @@
+# Python Requirements for Multi-Channel Advertising Dashboard
+
+# Core Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization
+plotly>=5.14.0
+streamlit>=1.28.0
+
+# Google Cloud Integration
+google-cloud-bigquery==3.14.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+google-auth==2.26.2
+
+# Database Connectivity
+db-dtypes>=1.1.0
+
+# Additional Utilities
+pyarrow>=12.0.0
